@@ -1,0 +1,16 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+#RUN npm config set registry https://registry.npm.js.org/
+RUN npm config set fetch-rety-mintimeout 2000000
+RUN npm config set fetch-rety-mintimeout 12000000
+RUN npm install
+
+
+COPY . .
+
+RUN chown -R node:node /app/node_modules
+
+CMD ["npm", "run", "start"]
