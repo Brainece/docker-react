@@ -1,4 +1,5 @@
 sudo: required
+language: generic
 services:
   - docker
 
@@ -7,4 +8,5 @@ before_install:
 
 script: 
   - docker run briansamba/docker-react npm run test -- --coverage
+
       
